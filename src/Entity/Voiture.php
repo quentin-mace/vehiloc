@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Enum\CapacityEnum;
+use App\Enum\TransmissionTypeEnum;
 use App\Repository\VoitureRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -31,7 +32,7 @@ class Voiture
     private ?CapacityEnum $placesCapacity = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $transmissionType = null;
+    private ?TransmissionTypeEnum $transmissionType = null;
 
     public function getId(): ?int
     {
@@ -67,7 +68,7 @@ class Voiture
         return $this->mensualPrice;
     }
 
-    public function setManualPrice(float $mensualPrice): static
+    public function setMensualPrice(float $mensualPrice): static
     {
         $this->mensualPrice = $mensualPrice;
 
@@ -98,12 +99,12 @@ class Voiture
         return $this;
     }
 
-    public function getTransmissionType(): ?string
+    public function getTransmissionType(): ?TransmissionTypeEnum
     {
         return $this->transmissionType;
     }
 
-    public function setTransmissionType(string $transmissionType): static
+    public function setTransmissionType(TransmissionTypeEnum $transmissionType): static
     {
         $this->transmissionType = $transmissionType;
 
