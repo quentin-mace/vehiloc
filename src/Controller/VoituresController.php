@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Voiture;
 use App\Repository\VoitureRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +18,14 @@ final class VoituresController extends AbstractController{
 
         return $this->render('voitures/index.html.twig', [
             'voitures' => $voitures,
+        ]);
+    }
+
+    #[Route('/{id}', name: 'show', requirements: ['id' => '\d+'])]
+    public function show(Voiture $voiture, VoitureRepository $repository): Response
+    {
+        return $this->render('voitures/show.html.twig', [
+            'voiture' => $voiture,
         ]);
     }
 }

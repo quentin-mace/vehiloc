@@ -8,7 +8,7 @@
             {% for voiture in voitures  %}
             <article>
                 <div class="mini-car-title">
-                    <a href="#">
+                    <a href="{{ path('app_voitures_show', {id: voiture.id}) }}">
                         <h3>{{ voiture.name }}</h3>
                         <p>ou similaire | Saint-Étienne</p>
                     </a>
