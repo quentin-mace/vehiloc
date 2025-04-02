@@ -7,6 +7,7 @@ use App\Enum\TransmissionTypeEnum;
 use App\Repository\VoitureRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: VoitureRepository::class)]
 class Voiture
@@ -17,15 +18,23 @@ class Voiture
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 2, max: 255)]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 10, max: 1000)]
     private ?string $description = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank()]
+    #[Assert\Positive()]
     private ?float $mensualPrice = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank()]
+    #[Assert\Positive()]
     private ?float $dailyPrice = null;
 
     #[ORM\Column]

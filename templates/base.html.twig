@@ -16,9 +16,10 @@
     <body>
         <header>
             <nav>
-                <a href="#"><img src="{{ asset('img/logo.png') }}" alt="Vehicloc" /></a>
-                <a href="#" class="btn-nav">Ajouter une voiture</a>
+                <a href="{{ path('app_voitures_index') }}"><img src="{{ asset('img/logo.png') }}" alt="Vehicloc" /></a>
+                <a href="{{ path('app_voitures_create') }}" class="btn-nav">Ajouter une voiture</a>
             </nav>
+            {% block hero %}
             <div class="flex-header">
                 <div>
                     <h1>Location de voitures à Saint-Étienne</h1>
@@ -28,6 +29,7 @@
                     <img src="{{ asset('img/car.png') }}" alt="Voiture">
                 </div>
             </div>
+            {% endblock %}
         </header>
 
         {% block body %}{% endblock %}

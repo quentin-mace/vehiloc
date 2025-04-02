@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
 
+{% block hero %}
+{% endblock %}
+
 {% block body %}
     <section id="fleet">
         <h2>Découvrez la flotte de véhicules chez Véhicloc</h2>
@@ -47,14 +50,14 @@
         <div>
             <h2>La promesse Véhicloc</h2>
             <div class="promise">
-                <img src="assets/icons/insurance.png" alt="Assurance et Assistance">
+                <img src="{{ asset('icons/insurance.png') }}" alt="Assurance et Assistance">
                 <div class="promise-text">
                     <h3>Assurance et Assistance</h3>
                     <p>Votre tranquillité d'esprit est notre priorité. Toutes nos locations mensuelles incluent une assurance complète et une assistance routière, pour garantir une conduite en toute sécurité.</p>
                 </div>
             </div>
             <div class="promise">
-                <img src="assets/icons/booking.png" alt="Réservation facile">
+                <img src="{{ asset('icons/booking.png') }}" alt="Réservation facile">
                 <div class="promise-text">
                     <h3>Réservation facile</h3>
                     <p>Notre plateforme vous permet de réserver votre voiture en quelques clics. Sélectionnez vos dates, choisissez le modèle qui vous convient et finalisez votre réservation en un rien de temps.</p>
@@ -62,7 +65,7 @@
             </div>
         </div>
         <div>
-            <img src="assets/img/promise.png" alt="La promesse Véhicloc">
+            <img src="{{ asset('img/promise.png') }}" alt="La promesse Véhicloc">
         </div>
     </section>
 {% endblock %}
