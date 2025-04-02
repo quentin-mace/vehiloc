@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Voiture;
 use App\Repository\VoitureRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -11,8 +12,14 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/', name: 'app_voitures_')]
 final class VoituresController extends AbstractController{
     #[Route('', name: 'index')]
-    public function index(VoitureRepository $repository): Response
+    #[Route('/delete/{id}', name: 'delete', requirements: ['id' => '\d+'])]
+    public function index(?Voiture $voiture, EntityManagerInterface $entityManager, VoitureRepository $repository): Response
     {
+        if ($voiture) {
+            $entityManager->remove($voiture);
+            $entityManager->flush();
+        }
+
         $voitures = $repository->findAll();
 
 
